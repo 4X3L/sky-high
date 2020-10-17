@@ -6,11 +6,19 @@ extends KinematicBody2D
 
 # Our velocity
 const velocity = Vector2(0, 0)
+const GRAVITY = 20
 
 func _ready():
-	velocity[0] = 200
-	velocity[1] = 200
+	velocity[0] = 0
+	velocity[1] = 0
 	
+# Called on input
+func _input(event):
+	if event.is_action("game_click"):
+		velocity[1] = -800
+
+func _gravity():
+	velocity[1] = velocity[1] + GRAVITY
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -27,3 +35,6 @@ func _process(delta):
 		elif "Walls" in groups:
 			print("Wall found!")
 			velocity[0] = - velocity[0]
+			_gravity()
+	else:
+		_gravity()
