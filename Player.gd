@@ -6,8 +6,10 @@ extends KinematicBody2D
 
 # Our velocity
 var velocity = Vector2(0, 0)
-const GRAVITY = 20
-const JUMP_POWER = 2
+export var GRAVITY : float = 20
+export var JUMP_POWER : float = 2
+export var JUMP_POWER_FIXED : float = 1000
+export var FIXED : bool = false
 
 func _ready():
 	velocity[0] = 0
@@ -18,17 +20,12 @@ func _input(event):
 	if event.is_action_pressed("game_click"):
 		#velocity[1] = -800
 		
-		# What is the mouse position
-		var mouse_position = get_viewport().get_mouse_position()
-		print(mouse_position)
+		velocity = get_viewport().get_mouse_position() - position
 		
-		# What is our posititon
-		var our_position = position
-		print(our_position)
-		
-		#Draw a line
-		var bob = mouse_position - our_position
-		velocity = velocity + ( bob * JUMP_POWER )
+		if FIXED:
+			velocity = velocity.normalized() * JUMP_POWER_FIXED
+		else:
+			velocity = velocity * JUMP_POWER
 		
 	
 
