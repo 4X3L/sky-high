@@ -22,6 +22,7 @@ func spawnInRange(ub, lb):
 		var viewWidth = get_viewport().size.x
 		newPlat.position[0] = rng.randf_range(0, viewWidth)
 		newPlat.position[1] = rng.randf_range(lb, ub)
+		newPlat.add_to_group("Platforms")
 		platformList.append(newPlat)
 		add_child_below_node(get_tree().get_root(), newPlat)
 
