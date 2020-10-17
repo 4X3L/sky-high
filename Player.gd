@@ -5,8 +5,9 @@ extends KinematicBody2D
 # https://docs.godotengine.org/en/stable/getting_started/step_by_step/scripting_continued.html#groups
 
 # Our velocity
-const velocity = Vector2(0, 0)
+var velocity = Vector2(0, 0)
 const GRAVITY = 20
+const JUMP_POWER = 2
 
 func _ready():
 	velocity[0] = 0
@@ -14,8 +15,22 @@ func _ready():
 	
 # Called on input
 func _input(event):
-	if event.is_action("game_click"):
-		velocity[1] = -800
+	if event.is_action_pressed("game_click"):
+		#velocity[1] = -800
+		
+		# What is the mouse position
+		var mouse_position = get_viewport().get_mouse_position()
+		print(mouse_position)
+		
+		# What is our posititon
+		var our_position = position
+		print(our_position)
+		
+		#Draw a line
+		var bob = mouse_position - our_position
+		velocity = velocity + ( bob * JUMP_POWER )
+		
+	
 
 func _gravity():
 	velocity[1] = velocity[1] + GRAVITY
