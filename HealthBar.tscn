@@ -5,6 +5,7 @@
 [ext_resource path="res://health_bar_innerpng.png" type="Texture" id=3]
 
 [node name="HealthBar" type="Node2D"]
+position = Vector2( -30.272, 0 )
 script = ExtResource( 1 )
 
 [node name="Inner" type="Sprite" parent="."]
