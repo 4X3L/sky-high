@@ -8,7 +8,7 @@ var yDirection = -1
 var num_frames = 0
 var time_one_direction = 0
 var switch_time = .5
-export var HEALTH_BOOST = 5
+export var HEALTH_BOOST = 50
 
 onready var health_bar = $"/root/Node2D/CanvasLayer/HealthBar"
 
