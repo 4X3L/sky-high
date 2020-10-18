@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://health_bar_outer.png" type="Texture" id=1]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 502.634, 38.6128 )
+scale = Vector2( 1.09253, 0.759071 )
+texture = ExtResource( 1 )
