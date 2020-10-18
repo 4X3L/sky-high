@@ -5,6 +5,6 @@
 [node name="Burger" type="Node2D"]
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( -0.319641, -0.0350727 )
-scale = Vector2( 0.551811, 0.54611 )
+position = Vector2( 1.20434, -4.60732 )
+scale = Vector2( 1.2842, 1.23027 )
 texture = ExtResource( 1 )
