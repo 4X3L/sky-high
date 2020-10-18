@@ -19,18 +19,17 @@ export var FIXED : bool = false
 
 export var TOTAL_JUMPS = 1
 var curent_jumps
-# var my_sprite : Sprite = null
 onready var my_sprite = $Sprite
 
 export var JUMP_COLOR : Color = Color(.7, .7, 1)
 export var NO_JUMP_COLOR : Color = Color(1, 1, 1)
+
 
 func _ready():
 	velocity[0] = 0
 	velocity[1] = 0
 	curent_jumps = 0
 	_update_sprite()
-
 
 func _update_sprite():
 	# Direction
@@ -54,8 +53,9 @@ func _input(event):
 		if curent_jumps > 0:
 			_jump()
 			curent_jumps -= 1
-	_update_sprite()
-		
+		_update_sprite()
+	if event.is_action_pressed("restart"):
+		get_tree().reload_current_scene()
 
 
 func _gravity():
