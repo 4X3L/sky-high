@@ -43,9 +43,9 @@ func _update_sprite():
 func _jump():
 	var direction = get_viewport().get_mouse_position() - get_global_transform_with_canvas().origin 
 	if FIXED:
-		velocity = direction.normalized() * JUMP_POWER_FIXED
+		velocity += direction.normalized() * JUMP_POWER_FIXED
 	else:
-		velocity = direction * JUMP_POWER
+		velocity += direction * JUMP_POWER
 
 # Called on input
 func _input(event):
