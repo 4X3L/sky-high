@@ -33,3 +33,10 @@ func _update_bar():
 func _ready():
 	_update_bar()
 	_set_up_timer()
+
+
+func _on_add_health(amount):
+	curent_health_percent = curent_health_percent + amount
+	if curent_health_percent > 100:
+		curent_health_percent = 100
+

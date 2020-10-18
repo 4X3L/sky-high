@@ -36,3 +36,4 @@ script = null
 position = Vector2( 235.983, 267.448 )
 
 [node name="HealthBar" parent="." instance=ExtResource( 7 )]
+[connection signal="add_health" from="Fries" to="HealthBar" method="_on_add_health"]

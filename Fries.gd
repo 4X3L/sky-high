@@ -1,5 +1,6 @@
 extends Area2D
 
+signal add_health(amount)
 
 # Declare member variables here. Examples:
 var yVelocity = 30
@@ -7,11 +8,12 @@ var yDirection = -1
 var num_frames = 0
 var time_one_direction = 0
 var switch_time = .5
+export var HEALTH_BOOST = 5
 
 #export var PlayerNode : KinematicBody2D
 
 func _on_Player_body_entered(body):
-	print("Fries colected!")
+	emit_signal("add_health", HEALTH_BOOST)
 	queue_free()
 	
 
