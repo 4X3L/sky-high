@@ -1,5 +1,6 @@
 extends Area2D
 
+signal add_health(amount)
 
 # Declare member variables here. Examples:
 var yVelocity = 30
@@ -7,22 +8,15 @@ var yDirection = -1
 var num_frames = 0
 var time_one_direction = 0
 var switch_time = .5
-
-#export var PlayerNode : KinematicBody2D
+export var HEALTH_BOOST = 20
 
 func _on_Player_body_entered(body):
-	print("Potats colected!")
+	emit_signal("add_health", HEALTH_BOOST)
 	queue_free()
-	
 
-# TODO: Modify what is below to make it work for the potato
 # Called when the node enters the scene tree for the first time.
-#func _ready():
-	#self.connect("body_entered", self, "_on_Player_body_entered")
-	#var player_node = get_tree().get_nodes_in_group("Players")[0]
-	# TODO this is jank ^
-	#self.connect("body_entered", player_node, "_on_fries_get")
-
+func _ready():
+	self.connect("body_entered", self, "_on_Player_body_entered")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

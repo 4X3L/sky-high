@@ -39,4 +39,9 @@ func _on_add_health(amount):
 	curent_health_percent = curent_health_percent + amount
 	if curent_health_percent > 100:
 		curent_health_percent = 100
+	print("Added ", amount, " to health.")
 
+
+
+func __add_health(amount):
+	pass # Replace with function body.

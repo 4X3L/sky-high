@@ -77,9 +77,3 @@ func _process(delta):
 	else:
 		_gravity()
 
-
-
-func _on_fries_get(body):
-	print("I THE PLAYER GOT THE FRIES")
-	# TODO how do I call this?
-	
