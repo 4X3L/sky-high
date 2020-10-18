@@ -12,8 +12,8 @@ var bounceClamp = 1
 var friction = 1
 var slideClamp = 0.1
 
-export var GRAVITY : float = 20
-export var JUMP_POWER : float = 2
+export var GRAVITY : float = 15
+export var JUMP_POWER : float = 4
 export var JUMP_POWER_FIXED : float = 1000
 export var FIXED : bool = false
 
