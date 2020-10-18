@@ -24,7 +24,7 @@ func spawnInRange(ub, lb):
 		newPlat.position[1] = rng.randf_range(lb, ub)
 		newPlat.add_to_group("Platforms")
 		platformList.append(newPlat)
-		add_child_below_node(get_tree().get_root(), newPlat)
+		get_tree().get_root().get_node("Node2D").add_child(newPlat)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):

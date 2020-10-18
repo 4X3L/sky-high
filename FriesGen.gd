@@ -23,7 +23,7 @@ func spawnInRange(ub, lb):
 		newFries.position[0] = rng.randf_range(0, viewWidth)
 		newFries.position[1] = rng.randf_range(lb, ub)
 		friesList.append(newFries)
-		add_child_below_node(get_tree().get_root(), newFries)
+		get_tree().get_root().get_node("Node2D").add_child(newFries)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
