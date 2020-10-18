@@ -9,8 +9,8 @@ var platformScn = load("res://Platform.tscn")
 var platformList = []
 var minBounds = 0
 var maxBounds = 0
-var spawnDist = 800
-var spawnPerRange = 5
+var spawnDist = 200000
+var spawnPerRange = 3000
 var rng = RandomNumberGenerator.new()
 # Called when the node enters the scene tree for the first time.
 func _ready():

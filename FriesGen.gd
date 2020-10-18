@@ -9,8 +9,8 @@ var friesScn = load("res://Fries.tscn")
 var friesList = []
 var minBounds = 0
 var maxBounds = 0
-var spawnDist = 64000
-var spawnPerRange = 1
+var spawnDist = 200000
+var spawnPerRange = 100
 var rng = RandomNumberGenerator.new()
 # Called when the node enters the scene tree for the first time.
 func _ready():
