@@ -9,7 +9,7 @@ var velocity = Vector2(0, 0)
 # Friction with other objects, reduces velocity
 var bounceDamp = 0.7
 var bounceClamp = 1
-var friction = 0.5
+var friction = 1
 var slideClamp = 0.1
 
 export var GRAVITY : float = 20
@@ -39,14 +39,16 @@ func _gravity():
 	velocity[1] = velocity[1] + GRAVITY
 
 func _on_plaform_land(delta, collision_data):
+	var oldv = velocity
+	velocity = velocity.slide(collision_data.normal)
 	if collision_data.travel[1] < bounceClamp:
 		velocity[1] = 0
 	else:
-		velocity[1] *= -1 * bounceDamp
-	if collision_data.travel[0] < slideClamp:
-		velocity[0] = 0
-	else:
-		velocity[1] *= friction
+		velocity[1] = oldv[1] * -1 * bounceDamp
+	#if collision_data.travel[0] < slideClamp:
+		#velocity[0] = 0
+	#else:
+		#velocity[0] *= friction
 	#velocity[0] *= friction 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

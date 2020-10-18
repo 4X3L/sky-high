@@ -3,6 +3,9 @@
 [ext_resource path="res://wall.png" type="Texture" id=1]
 
 [node name="Node2D" type="Node2D"]
+__meta__ = {
+"_edit_vertical_guides_": [  ]
+}
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 79.1511, 100.624 )
