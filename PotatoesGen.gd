@@ -2,7 +2,7 @@ extends Node2D
 
 var platformScn = load("res://Potat.tscn")
 var platformList = []
-var platcount = 20
+var platcount = 75
 var rng = RandomNumberGenerator.new()
 # Called when the node enters the scene tree for the first time.
 func _ready():
