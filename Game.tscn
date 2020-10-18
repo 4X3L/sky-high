@@ -29,10 +29,11 @@ position = Vector2( 782.498, 293.139 )
 
 [node name="PlatGen" parent="." instance=ExtResource( 4 )]
 
-[node name="Background" parent="." instance=ExtResource( 6 )]
-script = null
-
 [node name="Fries" parent="." instance=ExtResource( 5 )]
 position = Vector2( 235.983, 267.448 )
 
 [node name="HealthBar" parent="." instance=ExtResource( 7 )]
+
+[node name="Background" parent="." instance=ExtResource( 6 )]
+z_index = -1
+script = null
