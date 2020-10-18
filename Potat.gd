@@ -10,7 +10,7 @@ var time_one_direction = 0
 var switch_time = .5
 export var HEALTH_BOOST = 20
 
-onready var health_bar = $"/root/Node2D/HealthBar"
+onready var health_bar = $"/root/Node2D/CanvasLayer/HealthBar"
 
 func _on_Player_body_entered(body):
 	emit_signal("add_health", HEALTH_BOOST)
