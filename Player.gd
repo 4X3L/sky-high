@@ -6,6 +6,12 @@ extends KinematicBody2D
 
 # Our velocity
 var velocity = Vector2(0, 0)
+# Friction with other objects, reduces velocity
+var bounceDamp = 0.7
+var bounceClamp = 1
+var friction = 1
+var slideClamp = 0.1
+
 export var GRAVITY : float = 20
 export var JUMP_POWER : float = 2
 export var JUMP_POWER_FIXED : float = 1000
@@ -33,7 +39,17 @@ func _gravity():
 	velocity[1] = velocity[1] + GRAVITY
 
 func _on_plaform_land(delta, collision_data):
-	pass
+	var oldv = velocity
+	velocity = velocity.slide(collision_data.normal)
+	if collision_data.travel[1] < bounceClamp:
+		velocity[1] = 0
+	else:
+		velocity[1] = oldv[1] * -1 * bounceDamp
+	#if collision_data.travel[0] < slideClamp:
+		#velocity[0] = 0
+	#else:
+		#velocity[0] *= friction
+	#velocity[0] *= friction 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -45,10 +61,8 @@ func _process(delta):
 		
 		# Did we hit a platform or a wall?
 		if "Platforms" in groups:
-			print("Platform found!")
 			_on_plaform_land(delta, collision_data)
 		elif "Walls" in groups:
-			print("Wall found!")
 			velocity[0] = - velocity[0]
 			_gravity()
 		else:
