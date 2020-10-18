@@ -5,4 +5,6 @@
 [node name="GameOver" type="Node2D"]
 
 [node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 511.324, 300.265 )
+scale = Vector2( 0.349128, 0.400607 )
 texture = ExtResource( 1 )
