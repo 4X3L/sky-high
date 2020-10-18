@@ -13,6 +13,7 @@ export var HEALTH_BOOST = 5
 onready var health_bar = $"/root/Node2D/CanvasLayer/HealthBar"
 
 func _on_Player_body_entered(body):
+	$"/root/Node2D/PSF".play()
 	emit_signal("add_health", HEALTH_BOOST)
 	queue_free()
 
