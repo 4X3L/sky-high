@@ -40,5 +40,9 @@ position = Vector2( 235.983, 267.448 )
 
 [node name="Potat" parent="." instance=ExtResource( 8 )]
 position = Vector2( 354.038, 208.517 )
-[connection signal="add_health" from="Fries" to="HealthBar" method="_on_add_health"]
-[connection signal="add_health" from="Potat" to="HealthBar" method="_on_add_health"]
+
+[node name="Fries2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 542.396, 325.06 )
+
+[node name="Potat2" parent="." instance=ExtResource( 8 )]
+position = Vector2( 349.628, 398.765 )
