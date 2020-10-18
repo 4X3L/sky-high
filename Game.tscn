@@ -50,6 +50,7 @@ position = Vector2( 349.628, 398.765 )
 [node name="PotatoesGen" parent="." instance=ExtResource( 9 )]
 
 [node name="BackGrounds" type="TileMap" parent="."]
+z_index = -1
 tile_set = ExtResource( 6 )
 cell_size = Vector2( 1024, 1024 )
 format = 1
