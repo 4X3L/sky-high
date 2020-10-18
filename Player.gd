@@ -17,18 +17,20 @@ export var JUMP_POWER : float = 2
 export var JUMP_POWER_FIXED : float = 1000
 export var FIXED : bool = false
 
+# var my_sprite : Sprite = null
+onready var my_sprite = $Sprite
+
 func _ready():
 	velocity[0] = 0
 	velocity[1] = 0
-	
+	# my_sprite = get_node("Sprite") # TODO async?
+
 # Called on input
 func _input(event):
 	if event.is_action_pressed("game_click"):
 		#velocity[1] = -800
 		
 		velocity = get_viewport().get_mouse_position() - get_global_transform_with_canvas().origin 
-
-		print("Mouse: ", get_viewport().get_mouse_position(), "\nSkull: ", get_global_transform_with_canvas().origin)
 		
 		if FIXED:
 			velocity = velocity.normalized() * JUMP_POWER_FIXED
@@ -57,6 +59,9 @@ func _on_plaform_land(delta, collision_data):
 func _process(delta):
 	# Update the position of the player and check for collisions 
 	var collision_data = move_and_collide(velocity * delta)
+
+	# Update sprite
+	my_sprite.set_flip_h( velocity[0] < 0 )
 
 	if collision_data:
 		var groups = collision_data.collider.get_groups()
