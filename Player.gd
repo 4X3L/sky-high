@@ -87,7 +87,8 @@ func _process(delta):
 		if "Platforms" in groups:
 			_on_plaform_land(delta, collision_data)
 		elif "Walls" in groups:
-			velocity[0] = - velocity[0]
+			#velocity[0] = - velocity[0]
+			velocity -= 2 * (velocity.dot(collision_data.normal) * collision_data.normal)
 			_gravity()
 		else:
 			print("Colidded with: ", collision_data.collider.name)
