@@ -5,11 +5,11 @@ extends Node2D
 # var a = 2
 # var b = "text"
 export var yPlayer : float = 0.0
-var friesScn = load("res://Fries.tscn")
-var friesList = []
+var potatoesScn = load("res://Potat.tscn")
+var potatoesList = []
 var minBounds = 0
 var maxBounds = 0
-var spawnDist = 64000
+var spawnDist = 4000
 var spawnPerRange = 1
 var rng = RandomNumberGenerator.new()
 # Called when the node enters the scene tree for the first time.
@@ -18,12 +18,12 @@ func _ready():
 
 func spawnInRange(ub, lb):
 	for _i in range(0,spawnPerRange):
-		var newFries = friesScn.instance()
+		var newPotatoes = potatoesScn.instance()
 		var viewWidth = get_viewport().size.x
-		newFries.position[0] = rng.randf_range(0, viewWidth)
-		newFries.position[1] = rng.randf_range(lb, ub)
-		friesList.append(newFries)
-		add_child_below_node(get_tree().get_root(), newFries)
+		newPotatoes.position[0] = rng.randf_range(0, viewWidth)
+		newPotatoes.position[1] = rng.randf_range(lb, ub)
+		potatoesList.append(newPotatoes)
+		add_child_below_node(get_tree().get_root(), newPotatoes)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
