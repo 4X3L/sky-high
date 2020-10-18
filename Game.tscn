@@ -14,6 +14,8 @@
 "Players",
 ] instance=ExtResource( 1 )]
 position = Vector2( 542.572, 193.541 )
+GRAVITY = 15.0
+JUMP_POWER = 4.0
 
 [node name="Platform" parent="." groups=[
 "Platforms",

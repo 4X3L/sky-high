@@ -14,7 +14,6 @@ func _on_Player_body_entered(body):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print("Here we go")
 	self.connect("body_entered", self, "_on_Player_body_entered")
 	var player_node = get_tree().get_nodes_in_group("Players")[0]
 	# TODO this is jank ^

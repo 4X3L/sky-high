@@ -26,7 +26,9 @@ func _input(event):
 	if event.is_action_pressed("game_click"):
 		#velocity[1] = -800
 		
-		velocity = get_viewport().get_mouse_position() - position
+		velocity = get_viewport().get_mouse_position() - get_global_transform_with_canvas().origin 
+
+		print("Mouse: ", get_viewport().get_mouse_position(), "\nSkull: ", get_global_transform_with_canvas().origin)
 		
 		if FIXED:
 			velocity = velocity.normalized() * JUMP_POWER_FIXED
