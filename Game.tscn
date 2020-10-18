@@ -1,9 +1,7 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Platform.tscn" type="PackedScene" id=2]
 [ext_resource path="res://PlatGen.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Fries.tscn" type="PackedScene" id=5]
 [ext_resource path="res://TiledBackground.tscn" type="PackedScene" id=6]
 [ext_resource path="res://HealthBar.tscn" type="PackedScene" id=7]
 [ext_resource path="res://FriesGen.tscn" type="PackedScene" id=8]
@@ -128,26 +126,9 @@ resource_local_to_scene = true
 [node name="Player" parent="." groups=[
 "Players",
 ] instance=ExtResource( 1 )]
-position = Vector2( 542.572, 193.541 )
-
-[node name="Platform" parent="." groups=[
-"Platforms",
-] instance=ExtResource( 2 )]
-position = Vector2( 771.403, 459.382 )
+position = Vector2( 514.568, 4624.78 )
 
 [node name="PlatGen" parent="." instance=ExtResource( 4 )]
-
-[node name="Fries" parent="." instance=ExtResource( 5 )]
-position = Vector2( 235.983, 267.448 )
-
-[node name="Potat" parent="." instance=ExtResource( 8 )]
-position = Vector2( 354.038, 208.517 )
-
-[node name="Fries2" parent="." instance=ExtResource( 5 )]
-position = Vector2( 542.396, 325.06 )
-
-[node name="Potat2" parent="." instance=ExtResource( 8 )]
-position = Vector2( 349.628, 398.765 )
 
 [node name="FriesGen" parent="." instance=ExtResource( 8 )]
 
@@ -156,6 +137,7 @@ position = Vector2( 349.628, 398.765 )
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HealthBar" parent="CanvasLayer" instance=ExtResource( 7 )]
+position = Vector2( -30, 0 )
 
 [node name="Burger" parent="." instance=ExtResource( 10 )]
 position = Vector2( 524.759, -16001.2 )
