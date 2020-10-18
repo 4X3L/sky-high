@@ -32,6 +32,9 @@ func _input(event):
 func _gravity():
 	velocity[1] = velocity[1] + GRAVITY
 
+func _on_plaform_land(delta, collision_data):
+	pass
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	# Update the position of the player and check for collisions 
@@ -43,7 +46,7 @@ func _process(delta):
 		# Did we hit a platform or a wall?
 		if "Platforms" in groups:
 			print("Platform found!")
-			# TODO add platform code
+			_on_plaform_land(delta, collision_data)
 		elif "Walls" in groups:
 			print("Wall found!")
 			velocity[0] = - velocity[0]
