@@ -24,5 +24,4 @@ position = Vector2( 782.498, 293.139 )
 [node name="PlatGen" parent="." instance=ExtResource( 4 )]
 
 [node name="Background" parent="." instance=ExtResource( 5 )]
-position = Vector2( -1.05945, 0.529724 )
-z_index = -15
+script = null
