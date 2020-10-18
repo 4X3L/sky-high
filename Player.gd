@@ -65,5 +65,14 @@ func _process(delta):
 		elif "Walls" in groups:
 			velocity[0] = - velocity[0]
 			_gravity()
+		else:
+			print("Colidded with: ", collision_data.collider.name)
 	else:
 		_gravity()
+
+
+
+func _on_fries_get(body):
+	print("I THE PLAYER GOT THE FRIES")
+	# TODO how do I call this?
+	
