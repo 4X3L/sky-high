@@ -7,6 +7,8 @@ extends Node2D
 
 # var xVelocity = 20
 var yVelocity = 200
+#need to change it to reference the "Player" node
+onready var node = get_node("/root/Node2D/Fries")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -15,4 +17,5 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	position[1] = position[1] + (yVelocity * delta)
+	#Should not need the "yDirection" part for the Player node
+	position[1] = position[1] - (node.yDirection * node.yVelocity * delta)
