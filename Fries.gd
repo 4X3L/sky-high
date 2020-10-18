@@ -2,8 +2,11 @@ extends Area2D
 
 
 # Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+var yVelocity = 30
+var yDirection = -1
+var num_frames = 0
+var time_one_direction = 0
+var switch_time = .5
 
 #export var PlayerNode : KinematicBody2D
 
@@ -21,7 +24,10 @@ func _ready():
 
 	
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _process(delta):
+	position[1] = position[1] + (yDirection * yVelocity * delta)
+	time_one_direction += delta
+	if time_one_direction > switch_time:
+		yDirection *= -1
+		time_one_direction = 0
