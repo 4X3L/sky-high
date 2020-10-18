@@ -93,6 +93,11 @@ func _process(delta):
 		else:
 			print("Colidded with: ", collision_data.collider.name)
 		
+		if collision_data.collider.name == "BackGrounds":
+			var cv = collision_data.collider.get_cellv(collision_data.collider.world_to_map(position))
+			if cv == 5 and collision_data.normal == Vector2(0, -1): # five is just the tile id of the starting tile
+				velocity = Vector2(0,0)
+				curent_jumps = 1
 		_update_sprite()
 	else:
 		_gravity()
