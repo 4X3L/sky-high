@@ -7,7 +7,7 @@ extends Node2D
 
 # var xVelocity = 20
 
-var velocity = 20
+var velocity = -10
 
 onready var node = get_node("/root/Node2D/Player")
 
