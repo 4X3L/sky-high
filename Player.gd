@@ -5,12 +5,35 @@ extends KinematicBody2D
 # https://docs.godotengine.org/en/stable/getting_started/step_by_step/scripting_continued.html#groups
 
 # Our velocity
-const velocity = Vector2(0, 0)
+var velocity = Vector2(0, 0)
+export var GRAVITY : float = 20
+export var JUMP_POWER : float = 2
+export var JUMP_POWER_FIXED : float = 1000
+export var FIXED : bool = false
 
 func _ready():
-	velocity[0] = 200
-	velocity[1] = 200
+	velocity[0] = 0
+	velocity[1] = 0
 	
+# Called on input
+func _input(event):
+	if event.is_action_pressed("game_click"):
+		#velocity[1] = -800
+		
+		velocity = get_viewport().get_mouse_position() - position
+		
+		if FIXED:
+			velocity = velocity.normalized() * JUMP_POWER_FIXED
+		else:
+			velocity = velocity * JUMP_POWER
+		
+	
+
+func _gravity():
+	velocity[1] = velocity[1] + GRAVITY
+
+func _on_plaform_land(delta, collision_data):
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -23,7 +46,10 @@ func _process(delta):
 		# Did we hit a platform or a wall?
 		if "Platforms" in groups:
 			print("Platform found!")
-			# TODO add platform code
+			_on_plaform_land(delta, collision_data)
 		elif "Walls" in groups:
 			print("Wall found!")
 			velocity[0] = - velocity[0]
+			_gravity()
+	else:
+		_gravity()
